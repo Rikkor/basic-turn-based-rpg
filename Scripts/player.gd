@@ -12,6 +12,7 @@ func _ready():
  # Called every frame
 func _process(delta):
 	PlayerMovement()
+	PlayerAnimation()
 
 # Handles moving the player
 func PlayerMovement():
@@ -23,13 +24,15 @@ func PlayerMovement():
 
 func PlayerAnimation():
 	if (velocity.x > 0):
-		direction = "face-right"
+		direction = "right"
 	elif (velocity.x < 0):
-		direction = "face-left"
+		direction = "left"
 	elif (velocity.y > 0):
-		direction = "face-down"
+		direction = "down"
 	elif (velocity.y < 0):
-		direction = "face-up"
+		direction = "up"
 	
 	if (velocity == Vector2.ZERO):
-		pass
+		PlayerAnimator.play("idle_" + direction)
+	else:
+		PlayerAnimator.play("walk_" + direction)
