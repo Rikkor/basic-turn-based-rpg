@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="turn-based-tutorial"
-run/main_scene="uid://cy0xoedh3x7hd"
+run/main_scene="uid://bv68rpcv74uc2"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

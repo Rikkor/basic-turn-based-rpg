@@ -4,13 +4,13 @@ extends CharacterBody2D
 @onready var PlayerAnimator = get_node("AnimatedSprite2D")
 
 var speed = 250
-var direction = "face-right"
+var direction = "right"
 
 func _ready():
 	pass
 
  # Called every frame
-func _process(delta):
+func _process(_delta):
 	PlayerMovement()
 	PlayerAnimation()
 
