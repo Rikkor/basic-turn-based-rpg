@@ -16,4 +16,4 @@ data_*/
 mono_crash.*.json
 
 # Specific project folders
-Assets/Player_Character/
+Assets/
