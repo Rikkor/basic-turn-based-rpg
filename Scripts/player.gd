@@ -9,10 +9,18 @@ var direction = "right"
 func _ready():
 	pass
 
- # Called every frame
+ # Called every framesds
 func _process(_delta):
 	PlayerMovement()
 	PlayerAnimation()
+	
+	if (Input.is_action_just_pressed("ui_left")):
+		PlayerState.health -= 5
+		get_parent().setUpUI()
+		
+	if (Input.is_action_just_pressed("ui_right")):
+		PlayerState.health += 5
+		get_parent().setUpUI()
 
 # Handles moving the player
 func PlayerMovement():
