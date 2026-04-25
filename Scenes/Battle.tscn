@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://db83wsvwi0sfs"]
 
+[ext_resource type="Script" uid="uid://uwqapekvflto" path="res://Scripts/Battle.gd" id="1_1samx"]
 [ext_resource type="FontFile" uid="uid://dntklt66vo5iw" path="res://Assets/UI/Fonts/NormalFont.ttf" id="1_vr6xi"]
 [ext_resource type="Texture2D" uid="uid://cyjm0li5qj1pe" path="res://Assets/Enemies/Bamboo Enemy/Faceset.png" id="2_2h7oj"]
+[ext_resource type="Resource" uid="uid://cw1jgdiuhyoxe" path="res://src/Enemies/Bamboo.tres" id="2_p46lj"]
 [ext_resource type="Texture2D" uid="uid://b51rwk7dk2yof" path="res://Assets/UI/DialogueBoxSimple.png" id="3_2h7oj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1samx"]
@@ -40,6 +42,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1samx")
+enemy = ExtResource("2_p46lj")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2000298797]
 layout_mode = 1
@@ -95,7 +99,7 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("2_2h7oj")
 
-[node name="Panel" type="Panel" parent="." unique_id=2005270759]
+[node name="PlayerArea" type="Panel" parent="." unique_id=2005270759]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -106,7 +110,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8teo4")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1194129725]
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerArea" unique_id=1194129725]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,18 +118,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartFiller" type="Panel" parent="Panel/HBoxContainer" unique_id=395008709]
+[node name="StartFiller" type="Panel" parent="PlayerArea/HBoxContainer" unique_id=395008709]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u22qb")
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer" unique_id=663989084]
+[node name="Label" type="Label" parent="PlayerArea/HBoxContainer" unique_id=663989084]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_vr6xi")
 theme_override_font_sizes/font_size = 25
 text = "Player"
 
-[node name="HealthBar" type="ProgressBar" parent="Panel/HBoxContainer" unique_id=51564081]
+[node name="HealthBar" type="ProgressBar" parent="PlayerArea/HBoxContainer" unique_id=51564081]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -135,7 +139,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_p46lj")
 value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/HealthBar" unique_id=1980026714]
+[node name="Label" type="Label" parent="PlayerArea/HBoxContainer/HealthBar" unique_id=1980026714]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -152,10 +156,10 @@ theme_override_fonts/font = ExtResource("1_vr6xi")
 text = "HP: XX / XX"
 horizontal_alignment = 1
 
-[node name="PlayerActions" type="Control" parent="Panel/HBoxContainer" unique_id=895862209]
+[node name="PlayerActions" type="Control" parent="PlayerArea/HBoxContainer" unique_id=895862209]
 layout_mode = 2
 
-[node name="Attack" type="Button" parent="Panel/HBoxContainer/PlayerActions" unique_id=1227383091]
+[node name="Attack" type="Button" parent="PlayerArea/HBoxContainer/PlayerActions" unique_id=1227383091]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
 offset_left = 4.0
@@ -171,7 +175,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_2h7oj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c5ef4")
 text = "Attack"
 
-[node name="Defend" type="Button" parent="Panel/HBoxContainer/PlayerActions" unique_id=804975227]
+[node name="Defend" type="Button" parent="PlayerArea/HBoxContainer/PlayerActions" unique_id=804975227]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
 offset_left = 273.0
@@ -187,7 +191,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_2h7oj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c5ef4")
 text = "Defend"
 
-[node name="Run" type="Button" parent="Panel/HBoxContainer/PlayerActions" unique_id=509499830]
+[node name="Run" type="Button" parent="PlayerArea/HBoxContainer/PlayerActions" unique_id=509499830]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
 offset_left = 543.0
@@ -203,7 +207,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_2h7oj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c5ef4")
 text = "Run"
 
-[node name="EndFiller" type="Panel" parent="Panel/HBoxContainer" unique_id=854197192]
+[node name="EndFiller" type="Panel" parent="PlayerArea/HBoxContainer" unique_id=854197192]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u22qb")
