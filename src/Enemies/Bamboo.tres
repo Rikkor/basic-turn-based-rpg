@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://cw1jgdiuhyoxe"]
+
+[ext_resource type="Script" uid="uid://66ywfwqmbnt5" path="res://src/BaseEnemy.gd" id="1_f7xla"]
+[ext_resource type="Texture2D" uid="uid://cyjm0li5qj1pe" path="res://Assets/Enemies/Bamboo Enemy/Faceset.png" id="2_4ka75"]
+
+[resource]
+script = ExtResource("1_f7xla")
+name = "Bamboo"
+texture = ExtResource("2_4ka75")
+damage = 10
