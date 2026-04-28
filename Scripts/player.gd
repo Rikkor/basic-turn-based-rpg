@@ -30,6 +30,7 @@ func PlayerMovement():
 	
 	move_and_slide()
 
+# Handles the direction the player is facing/moving
 func PlayerAnimation():
 	if (velocity.x > 0):
 		direction = "right"
