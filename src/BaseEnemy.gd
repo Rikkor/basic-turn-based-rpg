@@ -1,5 +1,6 @@
 extends Resource
 
+# Variables on a base enemy object
 @export var name : String = "Enemy"
 @export var texture : Texture = null
 @export var health : int = 30
