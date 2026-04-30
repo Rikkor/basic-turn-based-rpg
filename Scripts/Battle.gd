@@ -15,3 +15,9 @@ func setHealth(health, maxHealth, healthBar):
 	healthBar.max_value = maxHealth
 	healthBar.get_node("Label").text = "HP: " + str(health) + " / " + str(maxHealth)
 	
+
+
+func _on_run_pressed() -> void:
+	#$PlayerArea/HBoxContainer/PlayerActionsprint.hide()
+	("Successfully escaped combat")
+	get_tree().change_scene_to_file("res://Scenes/World.tscn")

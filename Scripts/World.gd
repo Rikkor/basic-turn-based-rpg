@@ -14,5 +14,5 @@ func _process(delta):
 # Helps set up the UI in the world scene
 func setUpUI():
 	# Ties health bar to UI element in world scene
-	healthBar.max_value = PlayerState.MaxHealth
+	healthBar.max_value = PlayerState.maxHealth
 	healthBar.value = PlayerState.health

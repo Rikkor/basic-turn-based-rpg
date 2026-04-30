@@ -248,3 +248,5 @@ offset_right = 631.0
 offset_bottom = 134.6
 text = "-->
 "
+
+[connection signal="pressed" from="PlayerArea/HBoxContainer/PlayerActions/Run" to="." method="_on_run_pressed"]
