@@ -8,7 +8,10 @@ var currentPlayerHealth = 0
 func _ready():
 	setHealth(enemy.health, enemy.health, $VBoxContainer/HealthBar)
 	setHealth(PlayerState.health, PlayerState.maxHealth, $PlayerArea/HBoxContainer/HealthBar)
-
+	
+	$TextBox.hide()
+	$PlayerArea/HBoxContainer/PlayerActions.hide()
+	
 # Controls the health bar of each entity in the battle scene
 func setHealth(health, maxHealth, healthBar):
 	healthBar.value = health
@@ -19,5 +22,5 @@ func setHealth(health, maxHealth, healthBar):
 
 func _on_run_pressed() -> void:
 	#$PlayerArea/HBoxContainer/PlayerActionsprint.hide()
-	("Successfully escaped combat")
+	print("Successfully escaped combat")
 	get_tree().change_scene_to_file("res://Scenes/World.tscn")
