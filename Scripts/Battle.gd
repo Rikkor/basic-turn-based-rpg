@@ -14,10 +14,11 @@ func _ready():
 	
 	# Hide Textbox + Player actions as the fight starts
 	$TextBox.hide()
-	#$PlayerArea/HBoxContainer/PlayerActions.hide()
+	$PlayerArea/HBoxContainer/PlayerActions.hide()
 	
 	displayText("A  wild  " + enemy.name + "  appears!")
 	await self.textboxClosed
+	$PlayerArea/HBoxContainer/PlayerActions.show()
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept") and $TextBox.visible:
@@ -33,10 +34,23 @@ func setHealth(health, maxHealth, healthBar):
 func displayText(text):
 	$TextBox.show()
 	$TextBox/Text.text = text
-	
+
 func _on_run_pressed() -> void:
-	#$PlayerArea/HBoxContainer/PlayerActionsprint.hide()
+	$PlayerArea/HBoxContainer/PlayerActions.hide()
+	
 	var chance = randi_range(0, 1)
-	displayText("You escaped combat")
+	if chance == 0:
+		displayText("You couldn't escape!")
+		await self.textboxClosed
+		$PlayerArea/HBoxContainer/PlayerActions.show()
+		return
+	else:
+		displayText("You escaped combat")
+		await self.textboxClosed
+		get_tree().change_scene_to_file("res://Scenes/World.tscn")
+
+func _on_attack_pressed():
+	$PlayerArea/HBoxContainer/PlayerActions.hide()
+	displayText("You chose to attack!")
 	await self.textboxClosed
-	get_tree().change_scene_to_file("res://Scenes/World.tscn")
+	currentEnemyHealth = max(0, currentEnemyHealth - PlayerState.damage)
