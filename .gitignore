@@ -7,6 +7,9 @@
 export.cfg
 export_credentials.cfg
 
+# Ignore the random tmp files
+*.tmp
+
 # Imported translations (automatically generated from CSV files)
 *.translation
 
