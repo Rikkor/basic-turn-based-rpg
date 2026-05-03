@@ -225,7 +225,7 @@ offset_bottom = 120.0
 grow_horizontal = 2
 texture = ExtResource("3_2h7oj")
 
-[node name="Label" type="Label" parent="TextBox" unique_id=1693350670]
+[node name="Text" type="Label" parent="TextBox" unique_id=1693350670]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
