@@ -54,7 +54,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.078431375, 0.105882354, 0.105882354, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1409759049]
+[node name="EnemyContainer" type="VBoxContainer" parent="." unique_id=1409759049]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -69,7 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="HealthBar" type="ProgressBar" parent="VBoxContainer" unique_id=869570018]
+[node name="HealthBar" type="ProgressBar" parent="EnemyContainer" unique_id=869570018]
 custom_minimum_size = Vector2(200, 25)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1samx")
@@ -77,7 +77,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_p46lj")
 value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="VBoxContainer/HealthBar" unique_id=983607610]
+[node name="Label" type="Label" parent="EnemyContainer/HealthBar" unique_id=983607610]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -94,7 +94,7 @@ theme_override_fonts/font = ExtResource("1_vr6xi")
 text = "HP: XX / XX"
 horizontal_alignment = 1
 
-[node name="EnemyTexture" type="TextureRect" parent="VBoxContainer" unique_id=451216800]
+[node name="EnemyTexture" type="TextureRect" parent="EnemyContainer" unique_id=451216800]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("2_2h7oj")
@@ -249,4 +249,5 @@ offset_bottom = 134.6
 text = "-->
 "
 
+[connection signal="pressed" from="PlayerArea/HBoxContainer/PlayerActions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="PlayerArea/HBoxContainer/PlayerActions/Run" to="." method="_on_run_pressed"]

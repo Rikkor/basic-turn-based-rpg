@@ -9,8 +9,11 @@ var currentEnemyHealth = 0
 var currentPlayerHealth = 0
 
 func _ready():
-	setHealth(enemy.health, enemy.health, $VBoxContainer/HealthBar)
+	setHealth(enemy.health, enemy.health, $EnemyContainer/HealthBar)
 	setHealth(PlayerState.health, PlayerState.maxHealth, $PlayerArea/HBoxContainer/HealthBar)
+	
+	currentEnemyHealth = enemy.health
+	currentPlayerHealth = PlayerState.health
 	
 	# Hide Textbox + Player actions as the fight starts
 	$TextBox.hide()
@@ -54,3 +57,6 @@ func _on_attack_pressed():
 	displayText("You chose to attack!")
 	await self.textboxClosed
 	currentEnemyHealth = max(0, currentEnemyHealth - PlayerState.damage)
+	setHealth(currentEnemyHealth, enemy.health, $EnemyContainer/HealthBar)
+	displayText("You dealt " + str(PlayerState.damage) + " damage!")
+	await self.textboxClosed
